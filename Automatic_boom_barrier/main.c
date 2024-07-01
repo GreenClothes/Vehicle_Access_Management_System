@@ -1,8 +1,8 @@
 /*
  * Term_prj.c
  *
- * Created: 2022-11-14 오후 3:42:45
- * Author : kkb99
+ * Created: 2022-11-14 PM 3:42:45
+ * Author : kybin.kim
  */ 
 
 #define F_CPU 14745600UL
@@ -56,7 +56,6 @@ int main(void)
 	Init_Distance();
 	Init_LIGHT();
 	LCD_Init();
-	CGRAM_Set();
 	Init_Port();
 	Init_BUZZER();
 	EXTI_Init();

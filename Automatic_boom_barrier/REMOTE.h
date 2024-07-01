@@ -1,8 +1,8 @@
 ﻿/*
  * REMOTE.h
  *
- * Created: 2022-12-18 오후 3:05:12
- *  Author: kkb99
+ * Created: 2022-12-18 PM 3:05:12
+ *  Author: kybin.kim
  */ 
 
 

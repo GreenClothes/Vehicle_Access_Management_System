@@ -1,8 +1,8 @@
 ﻿/*
  * BUZZER.h
  *
- * Created: 2022-12-18 오후 2:52:53
- *  Author: kkb99
+ * Created: 2022-12-18 PM 2:52:53
+ *  Author: kybin.kim
  */ 
 
 

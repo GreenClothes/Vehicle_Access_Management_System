@@ -1,8 +1,8 @@
 ﻿/*
  * MOTOR.h
  *
- * Created: 2022-11-15 오전 10:02:58
- *  Author: kkb99
+ * Created: 2022-11-15 PM 10:02:58
+ *  Author: kybin.kim
  */ 
 
 

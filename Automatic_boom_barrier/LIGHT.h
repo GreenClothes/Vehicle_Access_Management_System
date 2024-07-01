@@ -1,8 +1,8 @@
 ﻿/*
  * LIGHT.h
  *
- * Created: 2022-11-21 오후 3:20:24
- *  Author: kkb99
+ * Created: 2022-11-21 PM 3:20:24
+ *  Author: kybin.kim
  */ 
 
 

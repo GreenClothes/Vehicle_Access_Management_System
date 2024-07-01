@@ -1,8 +1,8 @@
 ﻿/*
  * Distance.h
  *
- * Created: 2022-11-21 오후 12:57:39
- *  Author: kkb99
+ * Created: 2022-11-21 PM 12:57:39
+ *  Author: kybin.kim
  */ 
 
 

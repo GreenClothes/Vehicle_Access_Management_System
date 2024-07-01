@@ -1,8 +1,8 @@
 ﻿/*
  * UART.h
  *
- * Created: 2022-11-14 오후 3:47:07
- *  Author: kkb99
+ * Created: 2022-11-14 P 3:47:07
+ *  Author: kybin.kim
  */ 
 
 
