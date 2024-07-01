@@ -1,4 +1,3 @@
-from PARAM import *
 import struct
 
 # 패킷 구조
@@ -37,7 +36,7 @@ def resPACKET(plate_char, info):
     elif info == 'apt num':
         print('apt num')
         DATA_BUFF.append(b'\x03') # request only keypad input
-        DATA_BUFF.append(b'\x03') # switch active
+        DATA_BUFF.append(b'\x02') # switch active
         DATA_BUFF.append(b'\x00') # data length (no data)
         DATA_BUFF.append(b'\x00')  # end of packet
         return DATA_BUFF
@@ -48,5 +47,4 @@ def resPACKET(plate_char, info):
         DATA_BUFF.append(b'\x00')  # end of packet
         return DATA_BUFF
         
-    #### 패킷 보내는 코드 작성
     return DATA_BUFF

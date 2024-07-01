@@ -6,7 +6,7 @@ from openpyxl import load_workbook
 
 # 오늘 날짜로 된 파일이 있는지 확인
 def FILE_CHECK(date = datetime.today().strftime("%Y%m%d")):
-    file_path = 'DATA/{0}.xlsx'.format(date)
+    file_path = './DATA/{0}.xlsx'.format(date)
 
     if not os.path.isfile(file_path):
         wb = openpyxl.Workbook()

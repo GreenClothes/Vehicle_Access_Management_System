@@ -22,6 +22,7 @@ unsigned char *keyscan_num;
 #include "Distance.h"
 #include "LIGHT.h"
 #include "REMOTE.h"
+#include "PARAM.h"
 
 void HIGH_LED(int onoff){
 	// 전달받는 onoff에 따라 high luminance LED 켜고 끄기

@@ -12,7 +12,6 @@ from tkinter import * # __all__
 from tkinter import filedialog
 
 from license_plate import *
-from PARAM import *
 from DATABASE import *
 from PACKET import *
 
@@ -219,9 +218,6 @@ def UART_DATA_READ():
 
 UART_DATA_READ()
 
-#thread = threading.Thread(target=UART_DATA_READ, args=(ser,))
-#thread.start()
-
 # 저장경로 설정#####################################################################
 
 DATA_label = Label(root, text="날짜 선택")
@@ -259,7 +255,7 @@ def GET_DATA_btncmd():
     DATE = YEAR+MONTH+DAY
     #DATE='20221125'
 
-    file_path = "C:/Users/kkb99/Desktop/마이크로프로세서2/Term_prj/DATA/{0}.xlsx".format(DATE)
+    file_path = "./DATA/{0}.xlsx".format(DATE)
     if not os.path.isfile(file_path):
         msgbox.showinfo(title="ERROR", message="{0}.xlsx is not in directory!".format(DATE))
         return
