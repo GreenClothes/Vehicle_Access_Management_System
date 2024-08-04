@@ -150,3 +150,70 @@
   - 0x00 으로 고정 값
 
 ---
+
+### 트러블 슈팅
+
+- 데이터 패킷이 정상적으로 수신되지 않는 문제
+  - ATMEGA128 -> PC UART 전송 시 PC에서 빈 버퍼를 계속해서 읽으면서 데이터 패킷이 정상적으로 수신되지 않는 문제 발생
+  <br><br>
+  - ATMEGA128
+    - 데이터 길이 정보를 추가하여 데이터(입력된 방문 동호수 정보)를 정확히 읽을 수 있게 함
+    - 재전송 요청의 경우 데이터 길이를 1, 의미없는 데이터를 전송
+    ```
+    if (packet_type == 0x01){
+			resPacket(0x01, 0x01, 0x01, &blank_Data);
+			LCD_Clear();
+			LCD_Str("Re send");
+		}
+		else if (packet_type == 0x02){
+			resPacket(0x02, 0x01, 0x06, keyscan_num);
+		}
+		else if (packet_type == 0x03){
+			resPacket(0x02, 0x01, 0x06, keyscan_num);
+		}
+    ```
+  - PC
+    - 지속적으로 버퍼를 읽지만, 데이터 수신 시작을 알리는 값(start of packet / 0xff) 수신 시 데이터 패킷 파싱 수행
+    - 비정상적인 패킷 수신 시 데이터 재전송 요청
+    ```
+    if DATA_BUFF[0] != b'\xff':
+            print('error DATA_BUFF[0]')
+            PACKET = resPACKET('', 're send')
+            for data in PACKET:
+                ser.write(data)
+            #return # DATA_BUFF[0] != 0xff이면 오류
+            break
+
+        if DATA_BUFF[1] != b'\x01':
+            print('error DATA_BUFF[1]')
+            PACKET = resPACKET('', 're send')
+            for data in PACKET:
+                ser.write(data)
+            #return # DATA_BUFF[1] != 0x01이면 오류
+            break
+
+        if DATA_BUFF[2] == b'\x01':  # type : 차량 번호판 인식 요청
+            print('type 0x01')
+            webcam = cv2.VideoCapture(0)
+
+            ...
+
+            # 번호판 인식 실패 메세지 ATMEGA128에 전송
+            if detect == 0:
+                print("can't detection")
+                ser.flushOutput()
+                PACKET = resPACKET('', "can't detection")
+                for data in PACKET:
+                    ser.write(data)
+        elif DATA_BUFF[2] == b'\x02':  # type : 아파트 동호수 정보 수신
+            
+            ...
+            
+            # 데이터 읽기
+            PACKET_apt_num = []
+            for i in range(6):
+                PACKET_apt_num.append(DATA_BUFF[5 + i][0])
+    ```
+<br>
+
+---
